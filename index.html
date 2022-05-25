@@ -1,0 +1,37 @@
+<div class="div1">
+<select name="gazeteler"  style="width:200px" onChange="gazete_goster(this.value)">
+<option value="" selected="selected" >Gazete Seçin</option>
+<option value="aksam">Akşam</option>
+<option value="sozcu">Sözcü</option>
+</select>
+
+<script>
+ Date.prototype.toMyString = function () {
+   //If month/day is single digit value add perfix as 0
+function AddZero(obj) {
+  obj = obj + '';
+  if (obj.length == 1)
+ obj = "0" + obj
+  return obj;
+}
+
+var output = "";
+var monthNames = ["ocak", "subat", "mart", "nisan", "mayis", "haziran","temmuz", "agustos", "eylul", "ekim", "kasim", "aralik"
+];
+
+output += AddZero(this.getDate())+"-";
+output += monthNames[d.getMonth()]+"-";
+output += this.getFullYear();
+
+return output; 
+}
+
+var d = new Date();
+
+function gazete_goster(id) {
+pen = window.open("" ,"enlarged","width=1180, height=800, left=20,top=20,scrollbars=1,status=0,location=0");
+pen.document.write("<html><img src=\"https://i.f5haber.com/storage/newspapers/"+ id +d.toMyString()+ ".jpg\" /></html>");
+pen.focus();
+}
+
+</script></div>
